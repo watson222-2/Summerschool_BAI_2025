@@ -398,6 +398,7 @@ dependencies = [
     { name = "langchain-community" },
     { name = "langchain-experimental" },
     { name = "langchain-mcp-adapters" },
+    { name = "langchain-mcp-tools" },
     { name = "langchain-openai" },
     { name = "langgraph" },
     { name = "matplotlib" },
@@ -426,6 +427,7 @@ requires-dist = [
     { name = "langchain-community", specifier = ">=0.3.27" },
     { name = "langchain-experimental", specifier = ">=0.3.4" },
     { name = "langchain-mcp-adapters", specifier = ">=0.1.8" },
+    { name = "langchain-mcp-tools", specifier = ">=0.2.8" },
     { name = "langchain-openai", specifier = ">=0.3.27" },
     { name = "langgraph", specifier = ">=0.5.1" },
     { name = "matplotlib", specifier = ">=3.10.3" },
@@ -1362,6 +1364,18 @@ format-nongpl = [
 ]
 
 [[package]]
+name = "jsonschema-pydantic"
+version = "0.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d4/3e/088097e87f6b24b162cd42b090b1d3891b68e9dac96ceeac8ed5dff94db7/jsonschema_pydantic-0.6.tar.gz", hash = "sha256:6069a8929a333a7c7ea8510e9de50f062e747e655e6ba106da5af1981f995270", size = 6227, upload-time = "2024-02-03T21:50:23.285Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e7/67/cbb63be985519b51d13499e726db2c960069588d5c2c479859856158b4de/jsonschema_pydantic-0.6-py3-none-any.whl", hash = "sha256:98385ed53ab87598665956b43756746350e2b60411a38381231f9703d36e40eb", size = 4154, upload-time = "2024-02-03T21:50:20.622Z" },
+]
+
+[[package]]
 name = "jsonschema-specifications"
 version = "2025.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1708,6 +1722,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/8a/f2/f61eef5dc4b7e2bbb65ea904d59b96bd36c7017265c8e4a99c23688771cd/langchain_mcp_adapters-0.1.8.tar.gz", hash = "sha256:5fc6a596b73be96198135a11707102e3a7e9470b4d149bbbb1c9f9d902e0fa42", size = 20750, upload-time = "2025-06-30T19:28:46.578Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/25/28/86e7abd8ca1ba9057556d1b3c562f61fa068eb59ca7f74aea0dbc1c58115/langchain_mcp_adapters-0.1.8-py3-none-any.whl", hash = "sha256:037323b772f3214986b127fe89d2e7e721ca5e852a618cdbbf00cc955154cc90", size = 13795, upload-time = "2025-06-30T19:28:44.75Z" },
+]
+
+[[package]]
+name = "langchain-mcp-tools"
+version = "0.2.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jsonschema-pydantic" },
+    { name = "langchain" },
+    { name = "mcp" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5a/eb/c88fb913dbd2a13f2a62cab279730642a13d93d8ae998d5d8426bf8be64e/langchain_mcp_tools-0.2.8.tar.gz", hash = "sha256:8ce1802cf32aec0fd50ce6cda8ebed560b480583c40dd1e99a482cd098b8c9d4", size = 25792, upload-time = "2025-06-29T07:15:09.359Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f7/5a/4a7c69dfb61969b036c531e63b3fff9fabd19409c47a6236122d331865b5/langchain_mcp_tools-0.2.8-py3-none-any.whl", hash = "sha256:b8f6b69d54bf9e579a6d40a782b8f2fea4a2fa479e0a43f6e1576e98c2218ada", size = 20308, upload-time = "2025-06-29T07:15:07.969Z" },
 ]
 
 [[package]]
