@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 """
-FastMCP server exposing four tools:
+FastMCP server exposing five tools:
   • train_logistics_model(data)
   • predict_next_shipment(last_timestamp)
   • echo(text)
   • do_web_request(url)
+  • generate_fibonacci(n)
 """
 import os
 import logging
@@ -12,6 +13,7 @@ import joblib
 import requests
 import numpy as np
 from typing import List, Tuple
+from sklearn.linear_model import LinearRegression
 from fastmcp import FastMCP  # FastMCP 2.0 SDK
 
 # --- set up logging so your async tool can call logger.info() ---
@@ -64,6 +66,31 @@ def do_web_request(url: str) -> str:
     snippet = response_text
     logger.info(f"do_web_request fetched {len(snippet)} chars from {url}")
     return snippet
+
+@mcp.tool()
+def generate_fibonacci(n: int) -> str:
+    """Generate the first n Fibonacci numbers.
+    n: int - number of Fibonacci numbers to generate (must be positive)
+    """
+    if n <= 0:
+        return "Error: n must be a positive integer."
+    
+    if n > 100:
+        return "Error: n must be ≤ 100 to avoid excessive computation."
+    
+    # Generate Fibonacci sequence
+    fib_sequence = []
+    if n >= 1:
+        fib_sequence.append(0)
+    if n >= 2:
+        fib_sequence.append(1)
+    
+    for i in range(2, n):
+        next_fib = fib_sequence[i-1] + fib_sequence[i-2]
+        fib_sequence.append(next_fib)
+    
+    logger.info(f"Generated first {n} Fibonacci numbers")
+    return f"🔢 First {n} Fibonacci numbers: {fib_sequence}"
 
 if __name__ == "__main__":
     # Expose as streamable HTTP as recommended by FastMCP docs
